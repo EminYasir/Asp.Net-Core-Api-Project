@@ -37,5 +37,13 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+
+
+        public IActionResult SignOut()
+        {
+            _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Login");
+        }
+
     }
 }
