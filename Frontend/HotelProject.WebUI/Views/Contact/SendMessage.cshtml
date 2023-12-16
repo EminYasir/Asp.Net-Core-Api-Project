@@ -1,0 +1,74 @@
+﻿@model CreateContactDto
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">Bize Ulaşın</h6>
+            <h1 class="mb-5"><span class="text-primary text-uppercase">Tüm Sorularınız İÇİN</span> Bize Yazabilirsiniz</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="row gy-4">
+                    <div class="col-md-4">
+                        <h6 class="section-title text-start text-primary text-uppercase">Rezervasyon</h6>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>book@example.com</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="section-title text-start text-primary text-uppercase">Genel Sorularınız</h6>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>info@example.com</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="section-title text-start text-primary text-uppercase">İş Bavurusu</h6>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>İk@example.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48192.25415825653!2d29.063052999999996!3d40.981133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac790b17ba89d%3A0xd2d24ea0437a7ee2!2zS2FkxLFrw7Z5L8Swc3RhbmJ1bA!5e0!3m2!1sen!2str!4v1698916907831!5m2!1sen!2str" style="border:0; width:100%; height:-webkit-fill-available;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <form method="post" asp-action="SendMessage" asp-controller="Contact">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" name="Name" placeholder="Adınız">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" name="Mail" placeholder="Mail Adresinizi Giriniz">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    @Html.DropDownListFor(x=>x.MessageCategoryID,(List<SelectListItem>)ViewBag.v, new { @class="form-control"
+
+                                    })
+                                    <label for="subject">Konu</label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" name="Subject" placeholder="Subject">
+                                    <label for="subject">Konu Başlığı</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Mesajınızı buraya yazabilirsiniz" name="Message" id="message" style="height: 150px"></textarea>
+                                    <label for="message">Mesajınız</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Mesajı Gönder</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

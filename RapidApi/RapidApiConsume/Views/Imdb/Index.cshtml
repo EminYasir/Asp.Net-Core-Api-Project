@@ -1,0 +1,28 @@
+﻿@model List<ImdbViewModel>
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/boostrap/dist/css/bootstrap.min.css" >
+
+<div class="container">
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Film Adı</th>
+            <th>Açıklama</th>
+            <th>Afiş</th>
+            <th>Puan</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.rank</td>
+                <td>@item.title</td>
+                <td>@item.description</td>
+                <td><img src="@item.image" /> /td>
+                <td>@item.rating</td>
+            </tr>
+        }
+    </table>
+</div>

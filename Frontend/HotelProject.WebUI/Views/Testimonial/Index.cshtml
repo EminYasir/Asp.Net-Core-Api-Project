@@ -1,0 +1,34 @@
+﻿@model List<TestimonialViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutController1/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Referans Görsel</th>
+        <th>Referans Adı</th>
+        <th>Referans Ünvan</th>
+        <th>Referans Açıklama</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TestimonialID</td>
+            <td><img src="@item.Image" style="height:70px; width:70px; background-size:contain;" /></td>
+            <td>@item.Name</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+            <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn mb-1 btn-rounded btn-outline-primary">Güncelle</a></td>
+            <td><a href="#" class="btn mb-1 btn-rounded btn-outline-success">Detayar</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/TestimonialID/AddTestimonialID/" class="btn mb-1 btn-rounded btn-outline-info"> Yeni Personel Ekle</a>

@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutController1/_AdminLayout.cshtml";
+}
+
+<!-- Header Start -->
+@await Component.InvokeAsync("_DashboardHeadPartial")
+<!-- Header End -->
+
+<div class="container-fluid mt-3">
+    <!-- Widget Start -->
+    @await Component.InvokeAsync("_DashboardWidgetPartial")
+    <!-- Widget End -->
+
+
+    <!-- Last4Staff Start -->
+    @await Component.InvokeAsync("_DashboardLast4StaffList")
+    <!-- Last4Staff End -->
+
+    <!-- Last6Booking Start -->
+    @await Component.InvokeAsync("_DashboardLast6Booking")
+    <!-- Last6Booking End -->
+
+    <!-- SubscribePartial Start -->
+    @await Component.InvokeAsync("_DashboardSubscribeCountPartial")
+    <!-- SubscribePartial End -->
+
+
+    
+</div>
+
+                  
+<!-- Script Start -->
+@await Component.InvokeAsync("_DashboardScriptPartial")
+<!-- Script End -->
