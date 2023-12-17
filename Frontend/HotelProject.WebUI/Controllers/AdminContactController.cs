@@ -19,13 +19,13 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Inbox()
         {
             var client = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage = await client.GetAsync("http://localhost:5296/api/Contact");
+            var responsMessage = await client.GetAsync("http://hotelier.somee.com/api/Contact");
 
             var client2 = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage2 = await client2.GetAsync("http://localhost:5296/api/Contact/GetContactCount");
+            var responsMessage2 = await client2.GetAsync("http://hotelier.somee.com/api/Contact/GetContactCount");
 
             var client3 = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage3 = await client3.GetAsync("http://localhost:5296/api/SendMessage/SendMessageCount");
+            var responsMessage3 = await client3.GetAsync("http://hotelier.somee.com/api/SendMessage/SendMessageCount");
 
             if (responsMessage.IsSuccessStatusCode)//kontrol
             {
@@ -46,13 +46,13 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> SendBox()
         {
             var client = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage = await client.GetAsync("http://localhost:5296/api/SendMessage");//personel adresine istekte bulunuyoruz
+            var responsMessage = await client.GetAsync("http://hotelier.somee.com/api/SendMessage");//personel adresine istekte bulunuyoruz
 
             var client2 = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage2 = await client2.GetAsync("http://localhost:5296/api/Contact/GetContactCount");
+            var responsMessage2 = await client2.GetAsync("http://hotelier.somee.com/api/Contact/GetContactCount");
 
             var client3 = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage3 = await client3.GetAsync("http://localhost:5296/api/SendMessage/SendMessageCount");
+            var responsMessage3 = await client3.GetAsync("http://hotelier.somee.com/api/SendMessage/SendMessageCount");
 
             if (responsMessage.IsSuccessStatusCode)//kontrol
             {
@@ -83,7 +83,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);//jsona çeviriyoz,
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("http://localhost:5296/api/SendMessage", stringContent);
+            var responseMessage = await client.PostAsync("http://hotelier.somee.com/api/SendMessage", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("SendBox");
@@ -107,7 +107,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> MessageDetailsBySendBox(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMesssage = await client.GetAsync($"http://localhost:5296/api/SendMessage/{id}");//tek veri olarak gelicek id ye göre istedik
+            var responseMesssage = await client.GetAsync($"http://hotelier.somee.com/api/SendMessage/{id}");//tek veri olarak gelicek id ye göre istedik
             if (responseMesssage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMesssage.Content.ReadAsStringAsync();
@@ -121,7 +121,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> MessageDetailsByInBox(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMesssage = await client.GetAsync($"http://localhost:5296/api/Contact/{id}");//tek veri olarak gelicek id ye göre istedik
+            var responseMesssage = await client.GetAsync($"http://hotelier.somee.com/api/Contact/{id}");//tek veri olarak gelicek id ye göre istedik
             if (responseMesssage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMesssage.Content.ReadAsStringAsync();

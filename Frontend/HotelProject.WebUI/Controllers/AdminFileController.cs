@@ -23,7 +23,7 @@ namespace HotelProject.WebUI.Controllers
             multipartFormDataContent.Add(byteArrayContent, "file", file.FileName);
 
             var httpClient = new HttpClient();
-            var responseMessage = await httpClient.PostAsync("http://localhost:5296/api/FileProcess", multipartFormDataContent);
+            var responseMessage = await httpClient.PostAsync("http://hotelier.somee.com/api/FileProcess", multipartFormDataContent);
 
             return View();
         }

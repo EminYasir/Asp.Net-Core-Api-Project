@@ -18,7 +18,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage = await client.GetAsync("http://localhost:5296/api/About");//personel adresine istekte bulunuyoruz
+            var responsMessage = await client.GetAsync("http://hotelier.somee.com/api/About");//personel adresine istekte bulunuyoruz
             if (responsMessage.IsSuccessStatusCode)//kontrol
             {
                 var jsonData = await responsMessage.Content.ReadAsStringAsync();//gelen veri json türünde
@@ -32,7 +32,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> UpdateAbout(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMesssage = await client.GetAsync($"http://localhost:5296/api/About/{id}");//tek veri olarak gelicek id ye göre istedik
+            var responseMesssage = await client.GetAsync($"http://hotelier.somee.com/api/About/{id}");//tek veri olarak gelicek id ye göre istedik
             if (responseMesssage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMesssage.Content.ReadAsStringAsync();
@@ -47,7 +47,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);
             StringContent stringcontent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMesssage = await client.PutAsync("http://localhost:5296/api/About/", stringcontent);
+            var responseMesssage = await client.PutAsync("http://hotelier.somee.com/api/About/", stringcontent);
             if (responseMesssage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

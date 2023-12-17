@@ -9,7 +9,7 @@ using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
-    [AllowAnonymous]
+   [AllowAnonymous]
     public class DefaultController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -34,7 +34,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(subscribe);//jsona çeviriyoz,
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            await client.PostAsync("http://localhost:5296/api/Subscribe", stringContent);
+            await client.PostAsync("http://hotelier.somee.com/api/Subscribe", stringContent);
 
             return RedirectToAction("Index", "Default");
 

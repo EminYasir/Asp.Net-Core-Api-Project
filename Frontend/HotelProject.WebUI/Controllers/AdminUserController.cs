@@ -21,7 +21,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage = await client.GetAsync("http://localhost:5296/api/AppUser");//personel adresine istekte bulunuyoruz
+            var responsMessage = await client.GetAsync("http://hotelier.somee.com/api/AppUser");//personel adresine istekte bulunuyoruz
             if (responsMessage.IsSuccessStatusCode)//kontrol
             {
                 var jsonData = await responsMessage.Content.ReadAsStringAsync();//gelen veri json türünde
@@ -34,7 +34,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> UserList()
         {
             var client = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage = await client.GetAsync("http://localhost:5296/api/AppUserWorkLocation");//personel adresine istekte bulunuyoruz
+            var responsMessage = await client.GetAsync("http://hotelier.somee.com/api/AppUserWorkLocation");//personel adresine istekte bulunuyoruz
             if (responsMessage.IsSuccessStatusCode)//kontrol
             {
                 var jsonData = await responsMessage.Content.ReadAsStringAsync();//gelen veri json türünde

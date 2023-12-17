@@ -16,7 +16,7 @@ namespace HotelProject.WebUI.ViewComponents.Default
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage = await client.GetAsync("http://localhost:5296/api/About");//HAkkımızda adresine istekte bulunuyoruz
+            var responsMessage = await client.GetAsync("http://hotelier.somee.com/api/About");//HAkkımızda adresine istekte bulunuyoruz
             if (responsMessage.IsSuccessStatusCode)//kontrol
             {
                 var jsonData = await responsMessage.Content.ReadAsStringAsync();//gelen veri json türünde

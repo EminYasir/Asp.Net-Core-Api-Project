@@ -30,7 +30,7 @@ namespace HotelProject.WebUI.Controllers
 
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Connect("smtp.gmail.com", 587, false);
-            smtpClient.Authenticate("corutt58@gmail.com", "wwls gnbd gzaq mhwb");
+            smtpClient.Authenticate("corutt58@gmail.com", "cixs cqmn aqyo ogfy");
             smtpClient.Send(mimeMessage);
             smtpClient.Disconnect(true);
             //Gönderilen mesajların veritabanına kayıt edilmesi
