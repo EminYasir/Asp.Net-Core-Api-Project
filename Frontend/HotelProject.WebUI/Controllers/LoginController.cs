@@ -23,14 +23,11 @@ namespace HotelProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(LoginUserDto loginUserDto)
         {
-            if (ModelState.IsValid)
-            {
-                var result = await _signInManager.PasswordSignInAsync(loginUserDto.UserName, loginUserDto.Password, false, false);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Staff");
-                }
-                else
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(loginUserDto);//jsona çeviriyoz,
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage =  await client.PostAsync("http://localhost:5296/api/AppUser/LLogin", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
                 {
                     return View();
                 }
