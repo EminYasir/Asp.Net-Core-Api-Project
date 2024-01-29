@@ -95,6 +95,9 @@ h2, .h2 {
     }
 }
 
+
+
+
 h3, .h3 {
     font-size: calc(1.3rem + .6vw)
 }
@@ -106,14 +109,13 @@ h3, .h3 {
 }
 
 @media (min-width: 500px) {
-    iframe{
-        width:390px;
-
-    }
-    .col-md-5{
-        margin-left:0px;
+    iframe {
+        width: 390px;
     }
 
+    .col-md-5 {
+        margin-left: 0px;
+    }
 }
 
 h4, .h4 {

@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace HotelProject.BusinessLayer.Abstract
 {
-    public interface IAppUserService:IGenericService<AppUser>
+    public interface IAppUserService : IGenericService<AppUser>
     {
+        Task TInsertAsync(AppUser t);
         List<AppUser> TUserListWithWorkLocation();
         public List<AppUser> TUsersListWithWorkLocations();
     }

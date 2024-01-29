@@ -57,7 +57,7 @@ namespace HotelProject.WebUI.Controllers
                     await _userManager.RemoveFromRoleAsync(user, item.RoleName);
                 }
             }
-            return View(roleAssignViewModels);
+            return RedirectToAction("Index");
         }
     }
 }

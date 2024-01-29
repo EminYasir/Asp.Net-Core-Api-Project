@@ -13,7 +13,7 @@ namespace HotelProject.DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=HotelApiDb.mssql.somee.com;user id=YasirCorut_SQLLogin_1;pwd=yybzicsnxn;initial catalog=HotelApiDb;integrated security=false;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-L94UTMQ\\MSSQLSERVER5;initial catalog=HotelApiDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {

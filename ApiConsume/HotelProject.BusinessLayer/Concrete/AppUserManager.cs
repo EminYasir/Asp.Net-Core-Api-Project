@@ -4,6 +4,7 @@ using HotelProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,10 +14,12 @@ namespace HotelProject.BusinessLayer.Concrete
     {
         private readonly IAppUserDal _appUserDal;
 
+
         public AppUserManager(IAppUserDal appUserDal)
         {
             _appUserDal = appUserDal;
         }
+
 
         public void TDelete(AppUser t)
         {
@@ -35,7 +38,13 @@ namespace HotelProject.BusinessLayer.Concrete
 
         public void TInsert(AppUser t)
         {
+
             _appUserDal.Insert(t);
+        }
+        public async Task TInsertAsync(AppUser t)
+        {
+            // Asenkron veritabanı operasyonları
+            await _appUserDal.InsertAsync(t);
         }
 
         public void TUpdate(AppUser t)

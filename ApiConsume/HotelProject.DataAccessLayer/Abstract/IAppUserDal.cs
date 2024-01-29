@@ -9,6 +9,7 @@ namespace HotelProject.DataAccessLayer.Abstract
 {
     public interface IAppUserDal:IGenericDal<AppUser>
     {
+        Task InsertAsync(AppUser t);
         List<AppUser> UserListWithWorkLocation();
         List<AppUser> UsersListWithWorkLocations();
     }
