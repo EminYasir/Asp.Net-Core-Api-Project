@@ -18,7 +18,7 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
         {
 
             var client = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage = await client.GetAsync("http://hotelier.somee.com/api/Staff/Last4StaffList");
+            var responsMessage = await client.GetAsync("http://localhost:5296/api/Staff/Last4StaffList");
             if (responsMessage.IsSuccessStatusCode)//kontrol
             {
                 var jsonData = await responsMessage.Content.ReadAsStringAsync();//gelen veri json türünde

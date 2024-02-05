@@ -23,7 +23,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responsMessage = await client.GetAsync("http://hotelier.somee.com/api/MessageCategory");
+            var responsMessage = await client.GetAsync("http://localhost:5296/api/MessageCategory");
 
             var jsonData = await responsMessage.Content.ReadAsStringAsync();//gelen veri json türünde
             var values = JsonConvert.DeserializeObject<List<ResultMessageCategory>>(jsonData);//json ı tabloda kullanabileceiğim formata çeviriyorum
@@ -51,7 +51,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createContactDto);//jsona çeviriyoz,
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            await client.PostAsync("http://hotelier.somee.com/api/Contact", stringContent);
+            await client.PostAsync("http://localhost:5296/api/Contact", stringContent);
 
             return RedirectToAction("Index", "Contact");
         }

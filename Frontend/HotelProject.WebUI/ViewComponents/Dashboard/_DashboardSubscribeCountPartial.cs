@@ -18,11 +18,11 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
             var requestInstagram = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://instagram-profile1.p.rapidapi.com/getprofileinfo/emin_yasircrt"),
+                RequestUri = new Uri("https://instagram-api-20231.p.rapidapi.com/api/get_user_id/emin_yasircrt"),
                 Headers =
     {
         { "X-RapidAPI-Key", "73feb3c136msh68e8bb609ac11b7p19401ajsnf1d91b7a5f70" },
-        { "X-RapidAPI-Host", "instagram-profile1.p.rapidapi.com" },
+        { "X-RapidAPI-Host", "instagram-api-20231.p.rapidapi.com" },
     },
             };
             using (var response = await client.SendAsync(requestInstagram))
@@ -30,13 +30,13 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 resultInstagramFollowersDtos = JsonConvert.DeserializeObject<ResultInstagramFollowersDto>(body);//gelen veri alınıp view a gönderildi.
-                ViewBag.followingInsta = resultInstagramFollowersDtos.following;
-                ViewBag.followersInsta = resultInstagramFollowersDtos.followers;
+                ViewBag.followingInsta = resultInstagramFollowersDtos.data.following;
+                ViewBag.followersInsta = resultInstagramFollowersDtos.data.followers;
 
             }
 
             /////TWİTTER/////////////////////////
-            ResultTwitterFollowersDto resultTwitterFollowersDto=new ResultTwitterFollowersDto();
+            ResultTwitterFollowersDto resultTwitterFollowersDto = new ResultTwitterFollowersDto();
             var requestTwitter = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
@@ -58,23 +58,24 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
 
 
             ///////LİNKEDİN///////////////////
-            ResultLinkedinFollowersDto resultLinkedinFollowersDto=new ResultLinkedinFollowersDto();
-            var requestLinked = new HttpRequestMessage
+            ResultLinkedinFollowersDto resultLinkedinFollowersDto = new ResultLinkedinFollowersDto();
+            var requestLinkedin = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://fresh-linkedin-profile-data.p.rapidapi.com/get-linkedin-profile?linkedin_url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Femin-yasir-corut-b46a051b0%2F&include_skills=false"),
+                RequestUri = new Uri("https://linkedin-profile-data-api.p.rapidapi.com/connection-count?username=emin-yasir-corut-b46a051b0"),
                 Headers =
     {
         { "X-RapidAPI-Key", "73feb3c136msh68e8bb609ac11b7p19401ajsnf1d91b7a5f70" },
-        { "X-RapidAPI-Host", "fresh-linkedin-profile-data.p.rapidapi.com" },
+        { "X-RapidAPI-Host", "linkedin-profile-data-api.p.rapidapi.com" },
     },
             };
-            using (var response = await client.SendAsync(requestLinked))
+            using (var response = await client.SendAsync(requestLinkedin))
             {
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
-                resultLinkedinFollowersDto=JsonConvert.DeserializeObject<ResultLinkedinFollowersDto>(body);
-                ViewBag.followingLinked = resultLinkedinFollowersDto.data.followers_count;
+                resultLinkedinFollowersDto = JsonConvert.DeserializeObject<ResultLinkedinFollowersDto>(body);
+                ViewBag.followingLinked = resultLinkedinFollowersDto.follower;
+                ViewBag.connectionLinked = resultLinkedinFollowersDto.connection;
             }
 
 

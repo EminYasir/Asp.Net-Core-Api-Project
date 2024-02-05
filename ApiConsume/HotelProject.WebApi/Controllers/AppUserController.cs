@@ -24,12 +24,12 @@ namespace HotelProject.WebApi.Controllers
             _userManager = userManager;
         }
 
-        [HttpPost("UserLogin")]
-        public IActionResult Login()
-        {
-            var result = _appUserService.TGetList();
-            return Ok(result);
-        }
+        //[HttpPost("UserLogin")]
+        //public IActionResult Login()
+        //{
+        //    var result = _appUserService.TGetList();
+        //    return Ok(result);
+        //}
 
         [HttpGet]
         public IActionResult UserListWithWorkLocation()
@@ -45,8 +45,8 @@ namespace HotelProject.WebApi.Controllers
             var values = _appUserService.TGetList();
             return Ok(values);
         }
-        [HttpPost("LLogin")]
-        public IActionResult Loginn(LoginDto loginDto)
+        [HttpPost("Login")]
+        public IActionResult Login(LoginDto loginDto)
         {
             var vale = _appUserService.TGetList().FirstOrDefault(x => x.UserName == loginDto.UserName);
             if (vale != null)

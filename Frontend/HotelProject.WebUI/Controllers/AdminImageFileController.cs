@@ -25,7 +25,7 @@ namespace HotelProject.WebUI.Controllers
             multipartFormDataContent.Add(byteArrayContent,"file", file.FileName);
 
             var httpClient=new HttpClient();
-            var responseMessage = await httpClient.PostAsync("http://hotelier.somee.com/api/FileImage", multipartFormDataContent);
+            var responseMessage = await httpClient.PostAsync("http://localhost:5296/api/FileImage", multipartFormDataContent);
 
             return View();
         }

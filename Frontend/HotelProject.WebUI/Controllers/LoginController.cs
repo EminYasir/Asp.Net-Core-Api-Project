@@ -33,7 +33,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(loginUserDto);//jsona çeviriyoz,
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage =  await client.PostAsync("http://localhost:5296/api/AppUser/LLogin", stringContent);
+            var responseMessage =  await client.PostAsync("http://localhost:5296/api/AppUser/Login", stringContent);
 
             if (responseMessage.IsSuccessStatusCode)
             {

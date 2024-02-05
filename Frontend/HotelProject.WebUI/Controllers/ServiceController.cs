@@ -18,7 +18,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();//istemci oluşturduk
-            var responsMessage = await client.GetAsync("http://hotelier.somee.com/api/Service");//personel adresine istekte bulunuyoruz
+            var responsMessage = await client.GetAsync("http://localhost:5296/api/Service");//personel adresine istekte bulunuyoruz
             if (responsMessage.IsSuccessStatusCode)//kontrol
             {
                 var jsonData = await responsMessage.Content.ReadAsStringAsync();//gelen veri json türünde
@@ -43,7 +43,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createServiceDto);//jsona çeviriyoz,
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("http://hotelier.somee.com/api/Service", stringContent);
+            var responseMessage = await client.PostAsync("http://localhost:5296/api/Service", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -54,7 +54,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> DeleteService(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"http://hotelier.somee.com/api/Service/{id}");//dolar parametre değişkeninin geleceğini söylüyor
+            var responseMessage = await client.DeleteAsync($"http://localhost:5296/api/Service/{id}");//dolar parametre değişkeninin geleceğini söylüyor
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -67,7 +67,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> UpdateService(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMesssage = await client.GetAsync($"http://hotelier.somee.com/api/Service/{id}");//tek veri olarak gelicek id ye göre istedik
+            var responseMesssage = await client.GetAsync($"http://localhost:5296/api/Service/{id}");//tek veri olarak gelicek id ye göre istedik
             if (responseMesssage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMesssage.Content.ReadAsStringAsync();
@@ -86,7 +86,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateServiceDto);
             StringContent stringcontent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMesssage = await client.PutAsync("http://hotelier.somee.com/api/Service/", stringcontent);
+            var responseMesssage = await client.PutAsync("http://localhost:5296/api/Service/", stringcontent);
             if (responseMesssage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

@@ -28,38 +28,38 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" asp-for="Name" placeholder="Adınız Soyadınız">
+                                    <input type="text" class="form-control" asp-for="Name" placeholder="Adınız Soyadınız" autocomplete="off">
                                     <span asp-validation-for="Name" class="text-warning"></span>
                                     <label for="name">Adınız Soyadınız</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" asp-for="City" placeholder="Şehir">
+                                    <input type="text" class="form-control" asp-for="City" placeholder="Şehir" autocomplete="off">
                                     <label for="name">Şehir</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" asp-for="Country" placeholder="Ülke">
+                                    <input type="text" class="form-control" asp-for="Country" placeholder="Ülke" autocomplete="off">
                                     <label for="name">Ülke</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" asp-for="Mail" placeholder="Mail Adresiniz">
+                                    <input type="email" class="form-control" asp-for="Mail" placeholder="Mail Adresiniz" autocomplete="off">
                                     <label for="email">Mail Adresiniz</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating date" id="date3" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="checkin" placeholder="Giriş Tarihi" asp-for="Checkin" data-target="#date3" data-toggle="datetimepicker" />
+                                    <input type="date" class="form-control datetimepicker-input" id="checkin" placeholder="Giriş Tarihi" asp-for="Checkin" data-target="#date3" data-toggle="datetimepicker" />
                                     <label for="checkin">Giriş Tarihi</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating date" id="date4" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="checkout" placeholder="Çıkış Tarihi" asp-for="Checkout" data-target="#date4" data-toggle="datetimepicker" />
+                                    <input type="date" class="form-control datetimepicker-input" id="checkout" placeholder="Çıkış Tarihi" asp-for="Checkout" data-target="#date4" data-toggle="datetimepicker" />
                                     <label for="checkout">Çıkış Tarihi</label>
                                 </div>
                             </div>
@@ -76,6 +76,7 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <select class="form-select" asp-for="ChildCount">
+                                        <option value="1">Çocuk 0</option>
                                         <option value="1">Çocuk 1</option>
                                         <option value="2">Çocuk 2</option>
                                         <option value="3">Çocuk 3</option>
