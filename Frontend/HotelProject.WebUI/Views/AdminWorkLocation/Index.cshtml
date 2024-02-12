@@ -18,12 +18,12 @@
             <td>@item.WorkLocationID</td>
             <td>@item.WorkLocationName</td>
             <td>@item.WorkLocationCity</td>
-            <td><a href="/WorkLocation/WorkLocationDelete/@item.WorkLocationID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
-            <td><a href="/WorkLocation/WorkLocationUpdate/@item.WorkLocationID" class="btn mb-1 btn-rounded btn-outline-primary">Güncelle</a></td>
+            <td><a href="/WorkLocation/DeleteWorkLocation/@item.WorkLocationID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+            <td><a href="/WorkLocation/UpdateWorkLocation/@item.WorkLocationID" class="btn mb-1 btn-rounded btn-outline-primary">Güncelle</a></td>
         </tr>
     }
 
 </table>
 
-<a href="/WorkLocation/WorkLocationAdd" class="btn btn-primary">Yeni Lokasyon Girişi</a>
+<a href="/WorkLocation/AddWorkLocation" class="btn btn-primary">Yeni Lokasyon Girişi</a>
 

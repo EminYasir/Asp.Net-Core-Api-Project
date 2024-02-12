@@ -62,11 +62,11 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
             var requestLinkedin = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://linkedin-profile-data-api.p.rapidapi.com/connection-count?username=emin-yasir-corut-b46a051b0"),
+                RequestUri = new Uri("https://linkedin-api8.p.rapidapi.com/connection-count?username=emin-yasir-corut-b46a051b0"),
                 Headers =
     {
         { "X-RapidAPI-Key", "73feb3c136msh68e8bb609ac11b7p19401ajsnf1d91b7a5f70" },
-        { "X-RapidAPI-Host", "linkedin-profile-data-api.p.rapidapi.com" },
+        { "X-RapidAPI-Host", "linkedin-api8.p.rapidapi.com" },
     },
             };
             using (var response = await client.SendAsync(requestLinkedin))
