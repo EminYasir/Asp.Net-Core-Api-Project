@@ -1,5 +1,6 @@
 # HotelProject
 Merhaba, Murat Yücedağ Hocamın Udemy Plartformunda bulunan Kurumsal Mimaride Asp.Net Core Api - Rapid Api ve Api Consume eğitim projesini bitirdim ve sizinle paylaşmak istedim.
+
 Bu projede öğrendiğim ve pekiştirmiş olduğum başlıklar;
 Asp.Net Core Api, Asp.Net Identity, Swagger, Postman, Api Consume, Rapid Api, Json Web Token, Login, Register, AspNet Core 5.0, Fluent Validation, N Tier Architecture, DTO Layer, Mvc, Deploy, Entity Framework Core, Repository Design Pattern, Mail Gönderme İşlemleri
 
