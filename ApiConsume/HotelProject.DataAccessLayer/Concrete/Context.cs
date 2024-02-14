@@ -23,7 +23,7 @@ namespace HotelProject.DataAccessLayer.Concrete
             {
                 entry.ToTable("Rooms", tb => tb.HasTrigger("Roomdecrease"));
             });
-            builder.Entity<Staff>(entry =>
+            builder.Entity<Room>(entry =>
             {
                 entry.ToTable("Staffs", tb => tb.HasTrigger("Roomincrease"));
             });

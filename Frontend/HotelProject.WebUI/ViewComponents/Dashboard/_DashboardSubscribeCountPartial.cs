@@ -18,11 +18,11 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
             var requestInstagram = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://instagram-api-20231.p.rapidapi.com/api/get_user_id/emin_yasircrt"),
+                RequestUri = new Uri("https://instagram230.p.rapidapi.com/user/details?username=emin_yasircrt"),
                 Headers =
     {
         { "X-RapidAPI-Key", "73feb3c136msh68e8bb609ac11b7p19401ajsnf1d91b7a5f70" },
-        { "X-RapidAPI-Host", "instagram-api-20231.p.rapidapi.com" },
+        { "X-RapidAPI-Host", "instagram230.p.rapidapi.com" },
     },
             };
             using (var response = await client.SendAsync(requestInstagram))
@@ -30,8 +30,8 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 resultInstagramFollowersDtos = JsonConvert.DeserializeObject<ResultInstagramFollowersDto>(body);//gelen veri alınıp view a gönderildi.
-                ViewBag.followingInsta = resultInstagramFollowersDtos.data.following;
-                ViewBag.followersInsta = resultInstagramFollowersDtos.data.followers;
+                ViewBag.followingInsta = resultInstagramFollowersDtos.data.user.edge_follow.count;
+                ViewBag.followersInsta = resultInstagramFollowersDtos.data.user.edge_followed_by.count;
 
             }
 
